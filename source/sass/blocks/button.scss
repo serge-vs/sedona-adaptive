@@ -1,0 +1,25 @@
+/* Button */
+
+.button {
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 26px;
+  color: $basic-white;
+  text-transform: uppercase;
+  background-color: $basic-blue;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: $hover-blue;
+  }
+
+  &:active {
+    color: rgba(255, 255, 255, 0.3);
+    background-color: $active-blue;
+  }
+
+  &:disabled {
+    background-color: #e5e5e5;
+  }
+}

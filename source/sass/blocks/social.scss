@@ -1,0 +1,41 @@
+/* Social */
+
+.social__list {
+  @include list-reset;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.social__item {
+  width: 46px;
+  height: 48px;
+  margin-right: 6px;
+  background-color: $basic-blue;
+
+  &:hover,
+  &:focus {
+    background-color: $hover-blue;
+  }
+
+  &:active {
+    background-color: $active-blue;
+
+    svg {
+      fill-opacity: 0.3;
+    }
+  }
+}
+
+.social__item:last-child {
+  margin-right: 0;
+}
+
+.social__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 46px;
+  height: 48px;
+}

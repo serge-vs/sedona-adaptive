@@ -1,0 +1,19 @@
+/* Page-header */
+
+.page-header {
+  position: relative;
+  width: 320px;
+}
+
+.page-header__mobile-header-height {
+  min-height: 55px;
+  margin: 0;
+  padding: 0;
+}
+
+.page-header__logo {
+  position: absolute;
+  left: 50%;
+  z-index: 10;
+  transform: translateX(-50%);
+}
