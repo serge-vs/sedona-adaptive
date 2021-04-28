@@ -1,0 +1,20 @@
+/* Copyright */
+
+.copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.copyright__text {
+  padding-right: 13px;
+}
+
+.copyright__logo:hover,
+.copyright__logo:focus {
+  fill: $basic-blue;
+}
+
+.copyright__logo:active {
+  fill: rgba(0, 0, 0, 0.3);
+}

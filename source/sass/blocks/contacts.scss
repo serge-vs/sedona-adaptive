@@ -1,0 +1,25 @@
+/* Contacts */
+
+.contacts {
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 26px;
+
+  p {
+    margin: 0 0 9px 0;
+    padding: 0;
+  }
+
+  a {
+    color: $basic-black;
+  }
+}
+
+.contacts__phone:hover,
+.contacts__phone:focus {
+  color: $basic-blue;
+}
+
+.contacts__phone:active {
+  color: rgba(0, 0, 0, 0.3);
+}

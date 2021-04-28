@@ -1,0 +1,111 @@
+/* Features */
+
+.features__list,
+.features__advices-list {
+  @include list-reset;
+  text-align: center;
+}
+
+.features__advices-list {
+  padding: 35px 0 35px;
+  text-align: start;
+}
+
+.features__item-info-blue {
+  position: relative;
+  min-height: 227px;
+  padding-top: 71px;
+  color: $basic-white;
+  background-color: $basic-blue;
+}
+
+.features__item-info-blue--reverse {
+  min-height: 191px;
+  padding-top: 39px;
+}
+
+.features__triangle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 37px;
+  background-image: url("../img/bg-triangle.svg");
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.features__title,
+.features__advices-title {
+  margin: 0 0 10px;
+  padding: 0;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.features__advices-title {
+  margin-bottom: 16px;
+}
+
+.features__number {
+  margin: 0 0 17px 0;
+  padding: 0;
+}
+
+.features__text,
+.features__advices-text {
+  margin: 0;
+  padding: 0;
+}
+
+
+.features__advices-item {
+  position: relative;
+  padding-left: 69px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 21px;
+    width: 39px;
+    height: 37px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 26px;
+  }
+}
+
+.features__advices-item--icon-house::before {
+  background-image: url("../img/icon-house.svg");
+}
+
+.features__advices-item--icon-souvenirs::before {
+  background-image: url("../img/icon-gift.svg");
+}
+
+.features__advices-item--icon-food::before {
+  background-image: url("../img/icon-burger.svg");
+}
+
+.features__item--grey {
+  position: relative;
+  min-height: 168px;
+  padding: 25px 0 0;
+  background-color: $basic-grey-light;
+}
+
+.features__item-line::after {
+  content: "";
+  position: absolute;
+  top: 167px;
+  left: 20px;
+  z-index: 10;
+  width: 280px;
+  height: 1px;
+  background-color: #d6d6d6;
+}

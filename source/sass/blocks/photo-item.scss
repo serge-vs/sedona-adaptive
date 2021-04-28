@@ -1,0 +1,76 @@
+/* Photo-item */
+
+.photo-item {
+  position: relative;
+  width: 280px;
+  min-height: 415px;
+  margin: 0 auto;
+  padding-top: 22px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -20px;
+    width: 320px;
+    height: 1px;
+    background-color: #e5e5e5;
+  }
+
+  &:last-child::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -20px;
+    width: 320px;
+    height: 1px;
+    background-color: #e5e5e5;
+  }
+}
+
+.photo-item__title {
+  margin: 0 0 1px;
+  padding: 11px 0 0;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.photo-item__text {
+  margin: 0 0 10px;
+  padding: 0;
+  font-size: 14px;
+  line-height: 24px;
+  text-transform: none;
+}
+
+.photo-item__likes {
+  position: relative;
+}
+
+.photo-item__likes-button {
+  position: absolute;
+  top: -2px;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover path,
+  &:focus path {
+    opacity: 1;
+    fill: #333333;
+  }
+
+  &:active path {
+    opacity: 0.3;
+    fill: #333333;
+  }
+}
+
+.photo-item__likes-counter {
+  padding-left: 37px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 24px;
+}
