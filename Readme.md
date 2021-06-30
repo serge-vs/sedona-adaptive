@@ -1,6 +1,4 @@
 # Адаптивная вёрстка - проект "Седона"
-[![Check status][check-image]][check-url]
-
+[![Test status](https://github.com/serge-vs/sedona-adaptive/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/serge-vs/sedona-adaptive/actions)
+[![devDependency Status](https://david-dm.org/serge-vs/sedona-adaptive/dev-status.svg)](https://david-dm.org/serge-vs/sedona-adaptive#info=devDependencies)
 ---
-[check-image]: https://github.com/serge-vs/sedona-adaptive/actions/workflows/test.yml/badge.svg?branch=main
-[check-url]: https://github.com/serge-vs/sedona-adaptive/actions
