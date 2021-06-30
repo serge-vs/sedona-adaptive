@@ -3,11 +3,11 @@
 @import "fonts.scss";
 @import "global.scss";
 @import "visually-hidden.scss";
-@import "blocks/page-container.scss";
 @import "blocks/page-header.scss";
-@import "blocks/main-nav.scss";
 @import "blocks/burger-button.scss";
+@import "blocks/main-nav.scss";
 @import "blocks/site-list.scss";
+@import "blocks/page-main.scss";
 @import "blocks/banner.scss";
 @import "blocks/features.scss";
 @import "blocks/search-hotels.scss";
@@ -17,8 +17,9 @@
 @import "blocks/contacts.scss";
 @import "blocks/social.scss";
 @import "blocks/copyright.scss";
-@import "blocks/gallery.scss";
 @import "blocks/photo-item.scss";
-@import "blocks/presentation.scss";
+@import "blocks/gallery.scss";
 @import "blocks/video-item.scss";
+@import "blocks/presentation.scss";
 @import "blocks/review-form.scss";
+@import "blocks/modal.scss";

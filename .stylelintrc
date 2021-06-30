@@ -159,8 +159,8 @@
           "type": "at-rule",
           "name": "mixin"
         },
-        "at-rules",
         "declarations",
+        "at-rules",
         "rules"
       ],
       {

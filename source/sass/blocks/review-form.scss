@@ -100,11 +100,11 @@
   font-weight: bold;
   font-size: 18px;
   line-height: 26px;
-  background-color: $basic-grey-extra-light;
+  background-color: var(--basic-grey-extra-light);
   border: none;
 
   &::placeholder {
-    color: $basic-black;
+    color: var(--basic-black);
   }
 
   &:hover {
@@ -115,7 +115,7 @@
   &:active,
   &:focus {
     padding-left: 16px;
-    background-color: $basic-white;
+    background-color: var(--basic-white);
     border: 3px solid #e5e5e5;
     outline: none;
   }
@@ -178,6 +178,8 @@
   font-size: 18px;
   line-height: 26px;
   text-transform: none;
+  outline: 2px solid #000000;
+  outline-offset: -2px;
   cursor: pointer;
 
   &::before {
@@ -314,7 +316,7 @@
   resize: none;
 
   &::placeholder {
-    color: $basic-black;
+    color: var(--basic-black);
   }
 
   &:hover {
@@ -325,7 +327,7 @@
   &:active,
   &:focus {
     padding: 10px 17px 17px 17px;
-    background-color: $basic-white;
+    background-color: var(--basic-white);
     border: 3px solid #e5e5e5;
     outline: none;
   }

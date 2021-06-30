@@ -1,26 +1,27 @@
 /* Social */
 
 .social__list {
-  @include list-reset;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
+  @include list-reset;
 }
 
 .social__item {
   width: 46px;
   height: 48px;
   margin-right: 6px;
-  background-color: $basic-blue;
+  background-color: var(--basic-blue);
 
   &:hover,
   &:focus {
-    background-color: $hover-blue;
+    background-color: var(--hover-blue);
   }
 
   &:active {
-    background-color: $active-blue;
+    background-color: var(--active-blue);
 
     svg {
       fill-opacity: 0.3;

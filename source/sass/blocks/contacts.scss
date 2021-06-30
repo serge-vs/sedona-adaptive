@@ -4,20 +4,29 @@
   font-weight: bold;
   font-size: 21px;
   line-height: 26px;
+  text-align: center;
 
-  p {
-    margin: 0 0 9px 0;
-    padding: 0;
+  @media (min-width: $tablet-width) {
+    display: flex;
   }
 
   a {
-    color: $basic-black;
+    color: var(--basic-black);
   }
+}
+
+.contacts__hashtag {
+  margin: 0 0 9px 0;
+  padding: 0;
+}
+
+.contacts__phone {
+  font-size: 19px;
 }
 
 .contacts__phone:hover,
 .contacts__phone:focus {
-  color: $basic-blue;
+  color: var(--basic-blue);
 }
 
 .contacts__phone:active {

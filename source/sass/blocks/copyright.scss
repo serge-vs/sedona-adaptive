@@ -4,15 +4,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: $tablet-width) {
+    justify-content: flex-end;
+  }
 }
 
 .copyright__text {
   padding-right: 13px;
 }
 
+.copyright__logo {
+  padding-top: 3px;
+}
+
 .copyright__logo:hover,
 .copyright__logo:focus {
-  fill: $basic-blue;
+  fill: var(--basic-blue);
 }
 
 .copyright__logo:active {
