@@ -23,6 +23,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-source/css/*.css
-source/css/*.map
+source/video/
 build/
