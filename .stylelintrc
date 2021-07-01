@@ -3,6 +3,11 @@
     "stylelint-order"
   ],
 
+  "ignoreFiles": [
+    "source/sass/normalize.scss",
+    "node_modules/"
+  ],
+
   "rules": {
     "declaration-no-important": true,
 

@@ -1,2 +1,3 @@
-source/sass/global/normalize.scss
-build/
+
+node_modules/
+source/sass/normalize.scss

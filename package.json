@@ -1,11 +1,13 @@
 {
   "name": "sedona-adaptive",
+  "version": "0.1.0",
   "private": true,
   "description": "Проект «Седона» от HTML Academy",
+  "dependencies": {},
   "devDependencies": {
     "autoprefixer": "10.2.6",
     "babel-eslint": "^10.1.0",
-    "browser-sync": "^2.27.3",
+    "browser-sync": "^2.27.4",
     "del": "^6.0.0",
     "editorconfig-checker": "^4.0.2",
     "eslint": "^7.29.0",
@@ -21,7 +23,7 @@
     "gulp-plumber": "1.2.1",
     "gulp-postcss": "9.0.0",
     "gulp-rename": "^2.0.0",
-    "gulp-sass": "5.0.0",
+    "gulp-sass": "^5.0.0",
     "gulp-sourcemaps": "3.0.0",
     "gulp-svgstore": "^8.0.0",
     "gulp-uglify": "^3.0.2",
@@ -29,15 +31,16 @@
     "htmlhint": "^0.15.1",
     "postcss": "^8.3.5",
     "prettier": "^2.3.2",
+    "sass": "^1.35.1",
     "stylelint": "13.13.1",
     "stylelint-order": "^4.1.0"
   },
   "scripts": {
     "eslint": "eslint ./source",
     "eslint:fix": "eslint ./source --fix",
-    "editorconfig": "editorconfig-checker",
-    "stylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss",
-    "html": "htmlhint ./source/*.html",
+    "editorconfig": "editorconfig-checker --exclude \".git|node_modules|.DS_Store\"",
+    "stylelint": "stylelint ./source/**/*.{css,scss}",
+    "html": "htmlhint ./source/**/*.html",
     "test": "npm run editorconfig && npm run stylelint && npm run eslint && npm run html",
     "sprite": "npx gulp sprite",
     "images": "npx gulp images && npx gulp webp",
@@ -52,7 +55,5 @@
   ],
   "engines": {
     "node": "v14.15.4"
-  },
-
-  "dependencies": {}
+  }
 }
