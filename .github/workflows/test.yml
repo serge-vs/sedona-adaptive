@@ -1,11 +1,11 @@
 name: Test
 
 on:
+  pull_request:
+    branches: '*'
   push:
     branches:
       - main
-  pull_request:
-    branches: '*'
 
 jobs:
   Lint:
