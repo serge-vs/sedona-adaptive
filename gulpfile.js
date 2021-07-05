@@ -6,13 +6,15 @@ const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const csso = require('gulp-csso');
 const htmlmin = require('gulp-htmlmin');
-const uglify = require('gulp-uglify');
+const terser = require('gulp-terser'); // jsmin compressed es6+
+// const uglify = require('gulp-uglify'); // // jsmin compressed es5
 const rename = require('gulp-rename');
 const browserSync = require('browser-sync').create();
 const imagemin = require('gulp-imagemin');
 const webp = require('gulp-webp');
 const svgstore = require('gulp-svgstore');
 const del = require('del');
+const babel = require('gulp-babel');
 
 // Styles
 
@@ -58,7 +60,10 @@ exports.copy = copy;
 // JS min and copy to build
 
 const jsmin = () => gulp.src('source/js/*.js')
-  .pipe(uglify())
+  .pipe(babel({
+    presets: ['@babel/preset-env'],
+  }))
+  .pipe(terser())
   .pipe(rename((path) => {
     const thisPath = path;
     thisPath.basename += '.min';
