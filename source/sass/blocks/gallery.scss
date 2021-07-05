@@ -1,0 +1,43 @@
+/* Gallery */
+
+.gallery {
+  @media (min-width: $tablet-width) {
+    display: flex;
+    flex-wrap: wrap;
+    padding-right: 60px;
+    padding-left: 60px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 0;
+  }
+}
+
+.gallery__item {
+  margin: 0 auto;
+
+  @media (min-width: $tablet-width) {
+    width: 50%;
+    margin: 0;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 400px;
+  }
+}
+
+.gallery__item--first {
+  @media (min-width: $tablet-width) {
+    width: 100%;
+  }
+
+  @media (min-width: $desktop-width) {
+    width: 100%;
+  }
+}
+
+.gallery__item:not(:nth-child(2)):nth-child(even) .photo-item__description {
+  @media (min-width: $tablet-width) and (max-width: 1199px) {
+    background-color: var(--basic-grey-light);
+  }
+}

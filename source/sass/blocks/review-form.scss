@@ -1,0 +1,342 @@
+/* Review-form */
+
+.review-form {
+  width: 280px;
+  margin: 0 auto;
+}
+
+.review-form__item {
+  position: relative;
+  margin: 0;
+  padding: 20px 0 0;
+  border: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -20px;
+    width: 320px;
+    height: 1px;
+    background-color: #e5e5e5;
+  }
+
+  &:last-child::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -20px;
+    width: 320px;
+    height: 1px;
+    background-color: #e5e5e5;
+  }
+}
+
+.review-form__item--name {
+  padding-bottom: 25px;
+}
+
+.review-form__item--contacts {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 28px;
+}
+
+.review-form__item--impression {
+  padding-bottom: 41px;
+}
+
+.review-form__item--showplace {
+  padding-bottom: 35px;
+}
+
+.review-form__title {
+  margin: 0 0 19px 0;
+  padding: 0;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+  text-align: center;
+
+  &--contacts {
+    margin-bottom: 17px;
+  }
+
+  &--impression {
+    margin-bottom: 25px;
+  }
+
+  &--showplace {
+    margin-bottom: 20px;
+  }
+
+  &--message {
+    margin-bottom: 15px;
+  }
+}
+
+.review-form__label-name,
+.review-form__label-contacts {
+  margin: 0;
+  padding: 0;
+  line-height: 26px;
+  color: #333333;
+}
+
+.review-form__label-name {
+  margin-right: 15px;
+}
+
+.review-form__label-contacts {
+  margin-bottom: 8px;
+  margin-left: 22px;
+}
+
+.review-form__input {
+  flex-grow: 1;
+  min-width: 150px;
+  min-height: 58px;
+  padding-left: 19px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+  background-color: var(--basic-grey-extra-light);
+  border: none;
+
+  &::placeholder {
+    color: var(--basic-black);
+  }
+
+  &:hover {
+    background-color: #e5e5e5;
+    outline: none;
+  }
+
+  &:active,
+  &:focus {
+    padding-left: 16px;
+    background-color: var(--basic-white);
+    border: 3px solid #e5e5e5;
+    outline: none;
+  }
+}
+
+.review-form__name-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 280px;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+/* Contacts */
+
+.review-form__contacts-wrapper {
+  display: flex;
+  width: 280px;
+
+  &:not(:last-child) {
+    margin-bottom: 14px;
+  }
+}
+
+.review-form__contacts-logo {
+  width: 58px;
+  height: 58px;
+  background-color: #e6e6e6;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.review-form__contacts-logo--phone {
+  background-image: url("../img/icon-phone.svg");
+}
+
+.review-form__contacts-logo--email {
+  background-image: url("../img/icon-mail.svg");
+}
+
+/* Impressions */
+
+.review-form__impression-wrapper {
+  position: relative;
+  width: 280px;
+
+  &:not(:last-child) {
+    margin-bottom: 43px;
+  }
+}
+
+.review-form__label-impression {
+  margin: 0;
+  margin-left: 78px;
+  padding: 0;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+  text-transform: none;
+  outline: 2px solid #000000;
+  outline-offset: -2px;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -14px;
+    left: 0;
+    width: 58px;
+    height: 58px;
+    background-color: #f2f2f2;
+    border-radius: 50%;
+  }
+
+  &:hover::before {
+    background-color: #e5e5e5;
+  }
+
+  &:active::before {
+    background-color: #d5d5d5;
+  }
+}
+
+.review-form__radio-impression:focus + .review-form__label-impression::before {
+  background-color: #e5e5e5;
+}
+
+.review-form__radio-impression:checked + .review-form__label-impression::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 19px;
+  width: 20px;
+  height: 20px;
+  background-color: #333333;
+  border-radius: 50%;
+}
+
+.review-form__radio-impression:checked + .review-form__label-impression:active::after {
+  background-color: #a4a4a4;
+}
+
+.review-form__radio-impression:disabled + .review-form__label-impression::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 19px;
+  width: 20px;
+  height: 20px;
+  background-color: #a4a4a4;
+  border-radius: 50%;
+}
+
+/* Showplaces */
+
+.review-form__showplace-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 280px;
+  min-height: 56px;
+
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
+}
+
+.review-form__label-showplace {
+  margin: 0;
+  margin-left: 78px;
+  padding: 0;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+  text-transform: none;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 56px;
+    height: 56px;
+    background-color: #f2f2f2;
+    border-radius: 10%;
+  }
+
+  &:hover::before {
+    background-color: #e5e5e5;
+  }
+
+  &:active::before {
+    background-color: #d5d5d5;
+  }
+}
+
+.review-form__checkbox-showplace:focus + .review-form__label-showplace::before {
+  background-color: #e5e5e5;
+}
+
+.review-form__checkbox-showplace:checked + .review-form__label-showplace::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 56px;
+  background: url("../img/icon-tick.svg") no-repeat;
+  background-position: center;
+}
+
+.review-form__checkbox-showplace:checked + .review-form__label-showplace:active::after {
+  opacity: 0.3;
+}
+
+.review-form__checkbox-showplace:disabled + .review-form__label-showplace::after {
+  opacity: 0.3;
+}
+
+/* Text area */
+
+.review-form__message {
+  width: 100%;
+  min-height: 160px;
+  margin: 0;
+  margin-bottom: 51px;
+  padding: 13px 20px 20px 20px;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+  font-family: inherit;
+  background-color: #f2f2f2;
+  border: none;
+  resize: none;
+
+  &::placeholder {
+    color: var(--basic-black);
+  }
+
+  &:hover {
+    background-color: #e5e5e5;
+    outline: none;
+  }
+
+  &:active,
+  &:focus {
+    padding: 10px 17px 17px 17px;
+    background-color: var(--basic-white);
+    border: 3px solid #e5e5e5;
+    outline: none;
+  }
+}
+
+/* Form button */
+
+.review-form__button {
+  width: 280px;
+  height: 58px;
+  margin-bottom: 48px;
+}

@@ -1,0 +1,25 @@
+/* Button */
+
+.button {
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 26px;
+  font-family: inherit;
+  color: var(--basic-white);
+  text-transform: uppercase;
+  background-color: var(--basic-blue);
+
+  &:hover,
+  &:focus {
+    background-color: var(--hover-blue);
+  }
+
+  &:active {
+    color: rgba(255, 255, 255, 0.3);
+    background-color: var(--active-blue);
+  }
+
+  &:disabled {
+    background-color: var(--disabled-grey);
+  }
+}

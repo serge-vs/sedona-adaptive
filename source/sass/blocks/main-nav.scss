@@ -1,0 +1,16 @@
+/* Main navigation */
+
+.main-nav {
+  position: relative;
+}
+
+.main-nav__toggle {
+  position: absolute;
+  top: 17px;
+  right: 20px;
+  z-index: 10;
+
+  @media (min-width: $tablet-width) {
+    display: none;
+  }
+}

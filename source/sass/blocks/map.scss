@@ -1,0 +1,18 @@
+/* Map */
+
+.map {
+  position: relative;
+  height: 350px;
+  background-color: #f4f3f0;
+}
+
+.map__iframe {
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+}
+
+.map__img {
+  display: block;
+  width: 100%;
+}

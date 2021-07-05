@@ -1,0 +1,33 @@
+/* Page-header */
+
+.page-header {
+  position: relative;
+  min-width: 320px;
+  min-height: 56px;
+  margin: 0 auto;
+
+  @media (max-width: $mobile-width-only) {
+    padding-bottom: 56px;
+  }
+}
+
+.page-header__logo {
+  position: absolute;
+  left: 50%;
+  z-index: 10;
+  transform: translateX(-50%);
+
+  @media (min-width: $tablet-width) {
+    top: 0;
+  }
+}
+
+.page-header__logo-image {
+  width: 102px;
+  height: 84px;
+
+  @media (min-width: $desktop-width) {
+    width: 187px;
+    height: 96px;
+  }
+}

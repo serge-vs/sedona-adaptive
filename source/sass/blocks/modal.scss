@@ -1,0 +1,140 @@
+/* Modal */
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  display: none;
+  background-color: rgba(58, 66, 89, 0.7);
+}
+
+// удалить
+// .modal--success {
+//   display: none;
+// }
+
+// .modal--failure {
+//   display: none;
+// }
+
+.modal--show {
+  display: block;
+}
+
+.modal--show-fail {
+  display: block;
+}
+
+.modal__window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 320px;
+  margin: auto;
+  text-align: center;
+  background-color: var(--basic-white);
+  box-shadow: 0 7px 15px 1px rgba(0, 1, 1, 0.2);
+  transform: translate(-50%, -50%);
+}
+
+.modal__window--success {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 323px;
+
+  @media (min-width: $tablet-width) {
+    width: 640px;
+    min-height: 347px;
+  }
+}
+
+.modal__window--failure {
+  min-height: 280px;
+  padding: 40px 50px 35px;
+
+  @media (min-width: $tablet-width) {
+    width: 400px;
+    min-height: 347px;
+  }
+}
+
+.modal__text-wrapper {
+  padding: 30px 38px 46px;
+
+  @media (min-width: $tablet-width) {
+    padding-top: 48px;
+  }
+}
+
+.modal__title {
+  display: block;
+  margin: 0 auto 26px;
+  padding: 0;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 26px;
+
+  @media (min-width: $tablet-width) {
+    margin-bottom: 33px;
+    font-size: 30px;
+  }
+}
+
+.modal__title--failure {
+  @media (min-width: $tablet-width) {
+    width: 210px;
+    margin-bottom: 24px;
+    line-height: 40px;
+  }
+}
+
+.modal__description {
+  margin: 0;
+  padding: 0;
+  line-height: 24px;
+}
+
+.modal__description--failure {
+  margin-bottom: 22px;
+
+  @media (min-width: $tablet-width) {
+    margin-bottom: 54px;
+  }
+}
+
+.modal__button-wrapper {
+  min-height: 98px;
+  padding: 20px;
+  background-color: var(--basic-grey-extra-light);
+
+  @media (min-width: $tablet-width) {
+    min-height: 146px;
+    padding-top: 44px;
+  }
+}
+
+.modal__button {
+  width: 280px;
+  height: 58px;
+  font-weight: bold;
+  font-size: 18px;
+
+  @media (min-width: $tablet-width) {
+    width: 458px;
+    font-size: 21px;
+  }
+}
+
+.modal__button--failure {
+  display: inline-block;
+  width: 180px;
+
+  @media (min-width: $tablet-width) {
+    width: 272px;
+    font-size: 21px;
+  }
+}

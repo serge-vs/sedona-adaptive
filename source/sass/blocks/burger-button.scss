@@ -1,0 +1,73 @@
+/* Burger-button */
+
+.burger-button {
+  display: block;
+  width: 23px;
+  height: 22px;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: 0.2s linear;
+
+  span {
+    position: relative;
+    display: block;
+  }
+
+  span::before,
+  span::after {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 0;
+  }
+
+  span::after {
+    top: 9px;
+  }
+
+  span,
+  span::before,
+  span::after {
+    width: 23px;
+    height: 4px;
+    background-color: var(--basic-blue);
+    transition: all 500ms;
+  }
+}
+
+.burger-button--nojs {
+  display: none;
+}
+
+.burger-button--close span {
+  background-color: transparent;
+}
+
+.burger-button--close span::before {
+  width: 28px;
+  height: 4px;
+  background-color: var(--basic-white);
+  transform: rotate(45deg) translate(5px, 8px);
+}
+
+.burger-button--close span::after {
+  width: 28px;
+  height: 4px;
+  background-color: var(--basic-white);
+  transform: rotate(-45deg) translate(5px, -8px);
+}
+
+.burger-button:focus {
+  outline: 2px solid #4c609485;
+  outline-offset: 5px;
+}
+
+.burger-button:hover {
+  opacity: 0.6;
+}
+
+.burger-button:active {
+  opacity: 0.3;
+}
