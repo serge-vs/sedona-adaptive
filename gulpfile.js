@@ -1,20 +1,29 @@
-const gulp = require('gulp');
-const plumber = require('gulp-plumber');
-// const sourcemap = require('gulp-sourcemaps');
-const sass = require('gulp-sass')(require('sass'));
-const postcss = require('gulp-postcss');
-const autoprefixer = require('autoprefixer');
-const csso = require('gulp-csso');
-const htmlmin = require('gulp-htmlmin');
-const terser = require('gulp-terser'); // jsmin compressed es6+
-// const uglify = require('gulp-uglify'); // // jsmin compressed es5
-const rename = require('gulp-rename');
-const browserSync = require('browser-sync').create();
-const imagemin = require('gulp-imagemin');
-const webp = require('gulp-webp');
-const svgstore = require('gulp-svgstore');
-const del = require('del');
-const babel = require('gulp-babel');
+import gulp from 'gulp';
+import plumber from 'gulp-plumber';
+// import sourcemap from 'gulp-sourcemaps';
+import postcss from 'gulp-postcss';
+import autoprefixer from 'autoprefixer';
+import csso from 'gulp-csso';
+import posthtml from 'gulp-posthtml';
+import include from 'posthtml-include';
+import fileinclude from 'gulp-file-include';
+import htmlmin from 'gulp-htmlmin';
+import babel from 'gulp-babel';
+import terser from 'gulp-terser'; // jsmin compressed es6+
+// import uglify from 'gulp-uglify'; // jsmin compressed es5
+import rename from 'gulp-rename';
+import imagemin, {
+  gifsicle, mozjpeg, optipng, svgo,
+} from 'gulp-imagemin';
+import webp from 'gulp-webp';
+import svgstore from 'gulp-svgstore';
+import del from 'del';
+import { create as bsCreate } from 'browser-sync';
+import gulpSass from 'gulp-sass';
+import dartSass from 'sass';
+
+const browserSync = bsCreate();
+const sass = gulpSass(dartSass);
 
 // Styles
 
@@ -26,20 +35,20 @@ const styles = () => gulp.src('source/sass/style.scss')
     autoprefixer(),
   ]))
   // .pipe(gulp.dest('build/css'))
-  // .pipe(browserSync.stream())
+  .pipe(browserSync.stream())
   .pipe(csso({ restructure: false }))
   .pipe(rename('styles.min.css'))
   // .pipe(sourcemap.write('.'))
   .pipe(gulp.dest('build/css'))
   .pipe(browserSync.stream());
 
-exports.styles = styles;
+export { styles };
 
 // Delete files from build
 
 const clean = () => del('build');
 
-exports.clean = clean;
+export { clean };
 
 // Copy files from source to build
 
@@ -55,7 +64,7 @@ const copy = () => gulp.src([
 })
   .pipe(gulp.dest('build'));
 
-exports.copy = copy;
+export { copy };
 
 // JS min and copy to build
 
@@ -70,36 +79,54 @@ const jsmin = () => gulp.src('source/js/*.js')
   }))
   .pipe(gulp.dest('build/js'));
 
-exports.jsmin = jsmin;
+export { jsmin };
 
 // HTML min and copy to build
 
 const html = () => gulp.src('source/*.html')
+  .pipe(fileinclude({
+    prefix: '@@',
+    basepath: '@file',
+  }))
+  .pipe(posthtml([
+    include(),
+  ]))
   .pipe(htmlmin({
     collapseWhitespace: true,
     ignoreCustomFragments: [/<br(\s+\w+="\w+(-?\w+)+")?(\s?\/)?>\s/gi],
   }))
   .pipe(gulp.dest('build'));
 
-exports.html = html;
+export { html };
 
 // Images
 
 const images = () => gulp.src('build/img/**/*.{jpg,png,svg}')
   .pipe(imagemin([
-    imagemin.optipng({ optimizationLevel: 3 }),
-    imagemin.mozjpeg({ progressive: true }),
-    imagemin.svgo({
+    gifsicle({ interlaced: true }),
+    optipng({ optimizationLevel: 3 }),
+    mozjpeg({ quality: 75, progressive: true }),
+    svgo({
       plugins: [
-        { removeViewBox: false },
-        { removeUselessStrokeAndFill: false },
-        { cleanupIDs: false },
+        {
+          name: 'removeViewBox',
+          // Disable a plugin by setting active to false.
+          active: false,
+        },
+        {
+          name: 'removeUselessStrokeAndFill',
+          active: false,
+        },
+        {
+          name: 'cleanupIDs',
+          active: false,
+        },
       ],
     }),
   ]))
   .pipe(gulp.dest('build/img'));
 
-exports.images = images;
+export { images };
 
 // WebP
 
@@ -107,7 +134,7 @@ const createWebp = () => gulp.src(['build/img/**/*.{png,jpg}', '!build/img/favic
   .pipe(webp({ quality: 90 }))
   .pipe(gulp.dest('build/img'));
 
-exports.webp = createWebp;
+export { createWebp };
 
 // SVG Sprite
 
@@ -118,7 +145,7 @@ const sprite = () => gulp.src('source/img/**/icon-*.svg')
   .pipe(rename('sprite.svg'))
   .pipe(gulp.dest('build/img'));
 
-exports.sprite = sprite;
+export { sprite };
 
 // Reload
 
@@ -127,17 +154,17 @@ const reload = (done) => {
   done();
 };
 
-exports.reload = reload;
+export { reload };
 
 // Watcher
 
 const watcher = () => {
   gulp.watch('source/sass/**/*.scss', gulp.series('styles'));
   gulp.watch('source/js/*.js', gulp.series('jsmin', 'reload'));
-  gulp.watch('source/*.html', gulp.series('html', 'reload'));
+  gulp.watch(['source/*.html', 'source/components/**/*.html'], gulp.series('html', 'reload'));
 };
 
-exports.watcher = watcher;
+export { watcher };
 
 // Server
 
@@ -155,7 +182,7 @@ const server = (done) => {
   watcher();
 };
 
-exports.server = server;
+export { server };
 
 // Build
 
@@ -172,11 +199,11 @@ const build = gulp.series(
   ),
 );
 
-exports.build = build;
+export { build };
 
 // Default (npm run gulp)
 
-exports.default = gulp.series(
+const gulpDefault = gulp.series(
   gulp.parallel(
     styles,
     html,
@@ -187,6 +214,4 @@ exports.default = gulp.series(
   ),
 );
 
-// exports.default = gulp.series(
-//   styles, server, watcher,
-// );
+export { gulpDefault as default };
