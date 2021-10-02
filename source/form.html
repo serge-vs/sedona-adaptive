@@ -124,9 +124,10 @@
     @@include('components/footer.html', {})
 
   </div>
-  <div class="modal modal--success">
-    <section class="modal__window modal__window--success">
-      <h2 class="visually-hidden">Всплывающее окно с сообщением о том, что ваш отзыв принят</h2>
+
+  <section class="modal modal--success">
+    <div class="modal__content modal__content--success" role="dialog" aria-labelledby="modal-success-title">
+      <h2 class="visually-hidden" id="modal-success-title">Всплывающее окно с сообщением о том, что ваш отзыв принят</h2>
       <div class="modal__text-wrapper">
         <b class="modal__title">Ваш отзыв отправлен!</b>
         <p class="modal__description">Спасибо за ваше участие, ваш отзыв уже поступил к нам. <br>В ближайшее
@@ -135,20 +136,21 @@
       <div class="modal__button-wrapper">
         <button class="modal__button button" type="button" name="button-modal-close">Закрыть окно</button>
       </div>
-    </section>
-  </div>
-  <div class="modal modal--failure">
-    <section class="modal__window modal__window--failure">
-      <h2 class="visually-hidden">Всплывающее окно с сообщением об ошибке во время отправки формы</h2>
+    </div>
+  </section>
+  <section class="modal modal--failure">
+    <div class="modal__content modal__content--failure" role="dialog" aria-labelledby="modal-failure-title">
+      <h2 class="visually-hidden" id="modal-failure-title">Всплывающее окно с сообщением об ошибке во время отправки формы</h2>
       <b class="modal__title modal__title--failure">ЧТО-ТО ПОШЛО НЕ ТАК!</b>
       <p class="modal__description modal__description--failure">Проверьте поля, выделенные красным, скорее
         всего вы забыли их заполнить</p>
       <button class="modal__button modal__button--failure button" type="button" name="button-modal-fail">Oк</button>
-    </section>
-  </div>
+    </div>
+  </section>
 
   @@include('components/js.html', {})
 
+  <script src="http://unpkg.com/dom-focus-lock"></script>
   <script src="js/form.min.js"></script>
 </body>
 

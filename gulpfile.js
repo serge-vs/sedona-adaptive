@@ -4,13 +4,10 @@ import plumber from 'gulp-plumber';
 import postcss from 'gulp-postcss';
 import autoprefixer from 'autoprefixer';
 import csso from 'gulp-csso';
-import posthtml from 'gulp-posthtml';
-import include from 'posthtml-include';
 import fileinclude from 'gulp-file-include';
 import htmlmin from 'gulp-htmlmin';
 import babel from 'gulp-babel';
 import terser from 'gulp-terser'; // jsmin compressed es6+
-// import uglify from 'gulp-uglify'; // jsmin compressed es5
 import rename from 'gulp-rename';
 import imagemin, {
   gifsicle, mozjpeg, optipng, svgo,
@@ -18,11 +15,10 @@ import imagemin, {
 import webp from 'gulp-webp';
 import svgstore from 'gulp-svgstore';
 import del from 'del';
-import { create as bsCreate } from 'browser-sync';
+import browserSync from 'browser-sync';
 import gulpSass from 'gulp-sass';
 import dartSass from 'sass';
 
-const browserSync = bsCreate();
 const sass = gulpSass(dartSass);
 
 // Styles
@@ -88,9 +84,6 @@ const html = () => gulp.src('source/*.html')
     prefix: '@@',
     basepath: '@file',
   }))
-  .pipe(posthtml([
-    include(),
-  ]))
   .pipe(htmlmin({
     collapseWhitespace: true,
     ignoreCustomFragments: [/<br(\s+\w+="\w+(-?\w+)+")?(\s?\/)?>\s/gi],
@@ -203,7 +196,7 @@ export { build };
 
 // Default (npm run gulp)
 
-const gulpDefault = gulp.series(
+export default gulp.series(
   gulp.parallel(
     styles,
     html,
@@ -213,5 +206,3 @@ const gulpDefault = gulp.series(
     server,
   ),
 );
-
-export { gulpDefault as default };

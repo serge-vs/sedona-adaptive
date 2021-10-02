@@ -15,23 +15,19 @@
   display: block;
 }
 
-.modal--show-fail {
-  display: block;
-}
-
-.modal__window {
-  position: fixed;
+.modal__content {
+  position: relative;
   top: 50%;
   left: 50%;
+  z-index: 11;
   width: 320px;
-  margin: auto;
   text-align: center;
   background-color: var(--basic-white);
   box-shadow: 0 7px 15px 1px rgba(0, 1, 1, 0.2);
   transform: translate(-50%, -50%);
 }
 
-.modal__window--success {
+.modal__content--success {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -43,7 +39,7 @@
   }
 }
 
-.modal__window--failure {
+.modal__content--failure {
   min-height: 280px;
   padding: 40px 50px 35px;
 
